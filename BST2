@@ -1,0 +1,37 @@
+Find path in BST
+code
+public static ArrayList<Integer> getPath(BinaryTreeNode<Integer> root, int data){
+		/* Your class should be named Solution
+		* Don't write main().
+		* Don't read input, it is passed as function argument.
+		* Return output and don't print it.
+		* Taking input and printing output is handled automatically.
+		*/
+		ArrayList<Integer> output=new ArrayList<>();
+		if(root==null)
+		{
+			return null;
+		}
+		if(root.data==data)
+		{
+			output.add(root.data);
+			return output;
+		}
+        ArrayList<Integer> temp=new ArrayList<>();
+		if(data<root.data)
+		{
+			temp=getPath(root.left,data);
+		}
+		else
+		{
+			temp=getPath(root.right,data);
+		}
+		if(temp!=null)
+		{
+			temp.add(root.data);
+			return temp;
+		}
+		return null;
+
+	}
+}
